@@ -135,7 +135,7 @@
 											"let str = pm.response.json().message\r",
 											"const regexp = /(?<=\\()\\d{1,15}(?=\\))/\r",
 											"let array = regexp.exec(str)\r",
-											"let servertimestr = array[0].substring(0, array[0].length - 3)  //因時間戳為毫秒計數,因此後3碼數字省略\r",
+											"let servertimestr = array[0].substring(0, array[0].length - 3)  //因時間戳為毫秒計數,因此後3碼數字省略1\r",
 											"let servertime = parseInt(servertimestr) \r",
 											"console.log(servertime)\r",
 											"\r",
