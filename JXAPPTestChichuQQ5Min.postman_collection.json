@@ -64,7 +64,7 @@
 											"var jsonData = pm.response.json();",
 											"pm.environment.set(\"userid\",jsonData.data.userID);",
 											"pm.environment.set(\"login_key\",jsonData.data.key);",
-											"pm.environment.set(\"verifyKey\",'FzwYKV52hfoGXGEc');  //1此為sit.uat.live的相同固定檢定值",
+											"pm.environment.set(\"verifyKey\",'FzwYKV52hfoGXGEc');  //2此為sit.uat.live的相同固定檢定值",
 											"",
 											"pm.test(\"Status code is 200 ok\", () =>  pm.response.to.be.ok)",
 											"pm.test(\"success is true\", () =>  pm.expect(pm.response.json().success).to.be.true)"
