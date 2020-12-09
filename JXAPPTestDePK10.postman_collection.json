@@ -28,12 +28,12 @@
 											"\r",
 											"if (pm.environment.get(\"envName\") === 'JXAppSit') {\r",
 											"    pm.environment.set(\"mobile_api_uri\", 'http://192.168.3.16:8082')\r",
-											"    pm.environment.set(\"username\", 'jackson113')\r",
+											"    pm.environment.set(\"username\", 'jackson099')\r",
 											"    pm.environment.set(\"password\", 'f1f0b737ea9358')\r",
 											"}\r",
 											"else if (pm.environment.get(\"envName\") === 'JXAppUat') {\r",
 											"    pm.environment.set(\"mobile_api_uri\", 'http://jx-m.6j71.com')\r",
-											"    pm.environment.set(\"username\", 'jackson004')\r",
+											"    pm.environment.set(\"username\", 'jackson099')\r",
 											"    pm.environment.set(\"password\", 'f1f0b737ea9358')\r",
 											"}\r",
 											"else{\r",
@@ -52,7 +52,7 @@
 											"var jsonData = pm.response.json();",
 											"pm.environment.set(\"userid\",jsonData.data.userID);",
 											"pm.environment.set(\"login_key\",jsonData.data.key);",
-											"pm.environment.set(\"verifyKey\",'FzwYKV52hfoGXGEc');  //1此為sit.uat.live的相同固定檢定值",
+											"pm.environment.set(\"verifyKey\",'FzwYKV52hfoGXGEc');  //此為sit.uat.live的相同固定檢定值",
 											"",
 											"pm.test(\"Status code is 200 ok\", () =>  pm.response.to.be.ok)",
 											"pm.test(\"success is true\", () =>  pm.expect(pm.response.json().success).to.be.true)"
@@ -394,26 +394,9 @@
 							"name": "經典-前一-前一直选复式",
 							"event": [
 								{
-									"listen": "test",
-									"script": {
-										"id": "23150c4e-1a07-4d8d-b08e-0814e158511b",
-										"exec": [
-											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)\r",
-											"\r",
-											"//api後 第一次手動開獎 \"12345\" 綠色\r",
-											"//第二次手動開獎 \"34434\" 紫色\r",
-											"//第三次手動開獎 \"19999\" 藍色\r",
-											"//第四次手動開獎 \"56788\" 橙色\r",
-											"//第五次手動開獎 \"56677\" 淺紫色\r",
-											"//最後自行開33321驗證\"組選20\"玩法的正確性"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
 									"listen": "prerequest",
 									"script": {
-										"id": "7d301d9a-7110-45b8-abc1-cd1076354bb9",
+										"id": "e28b6031-ec80-4ba6-a63e-ef3dc78e4469",
 										"exec": [
 											"pm.environment.set(\"PlayTypeIDTemp\", 414) //依彩種初次來變動\r",
 											"pm.environment.set(\"PlayTypeRadioIDTemp\", 2166) //依彩種初次來變動\r",
@@ -442,6 +425,23 @@
 											"pm.environment.set(\"Periods\",'0')\r",
 											"pm.environment.set(\"PlayMode\",'1')\r",
 											"pm.environment.set(\"RebatePro\",'0.0')"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "2c43e038-378d-43c2-8e2f-d68459d1efce",
+										"exec": [
+											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)\r",
+											"\r",
+											"//api後 第一次手動開獎 \"12345\" 綠色\r",
+											"//第二次手動開獎 \"34434\" 紫色\r",
+											"//第三次手動開獎 \"19999\" 藍色\r",
+											"//第四次手動開獎 \"56788\" 橙色\r",
+											"//第五次手動開獎 \"56677\" 淺紫色\r",
+											"//最後自行開33321驗證\"組選20\"玩法的正確性"
 										],
 										"type": "text/javascript"
 									}
@@ -12843,7 +12843,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"43.65\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"40.5\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -13118,7 +13118,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"1.94\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"1.8\"))"
 										],
 										"type": "text/javascript"
 									}

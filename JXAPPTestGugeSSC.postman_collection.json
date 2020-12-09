@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8a94d44c-d1ff-4055-867c-4d690ca869cc",
+		"_postman_id": "18baa6b0-c998-49f2-b6be-984b3a479927",
 		"name": "JXAPPTestGugeSSC",
 		"description": "Sit/Uat 谷歌分分彩 全玩法投注\r\nPlayTypeRadioID (5059~xxxx)\r\nPlayTypeID (1421~xxxx)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -18,7 +18,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "50b0d3ec-e29a-43c9-8eb9-5879d670a121",
+										"id": "20821f9f-08bc-491a-bc0a-fc2eac480ba6",
 										"exec": [
 											"//always must\r",
 											"pm.environment.set(\"SysVersion\",'7.0')\r",
@@ -30,12 +30,12 @@
 											"\r",
 											"if (pm.environment.get(\"envName\") === 'JXAppSit') {\r",
 											"    pm.environment.set(\"mobile_api_uri\", 'http://192.168.3.16:8082')\r",
-											"    pm.environment.set(\"username\", 'jackson011')\r",
+											"    pm.environment.set(\"username\", 'jackson096')\r",
 											"    pm.environment.set(\"password\", 'f1f0b737ea9358')\r",
 											"}\r",
 											"else if (pm.environment.get(\"envName\") === 'JXAppUat') {\r",
 											"    pm.environment.set(\"mobile_api_uri\", 'http://jx-m.6j71.com')\r",
-											"    pm.environment.set(\"username\", 'jackson005')\r",
+											"    pm.environment.set(\"username\", 'jackson096')\r",
 											"    pm.environment.set(\"password\", 'f1f0b737ea9358')\r",
 											"}\r",
 											"else if (pm.environment.get(\"envName\") === 'JXAppLive') {\r",
@@ -53,7 +53,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0068b897-fcf6-49d4-bfcb-da536321053c",
+										"id": "4fccfd1d-ba24-496f-a428-bc70e5b4457b",
 										"exec": [
 											"var jsonData = pm.response.json();",
 											"pm.environment.set(\"userid\",jsonData.data.userID);",
@@ -124,7 +124,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "fc567632-3001-4512-aa4d-16b55e07406e",
+										"id": "ab10d1d9-97cd-4de1-8e67-cbc8661d4ec6",
 										"exec": [
 											"let str = pm.response.json().message\r",
 											"const regexp = /(?<=\\()\\d{1,15}(?=\\))/\r",
@@ -209,7 +209,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "5b5ebe81-b61a-4ec2-a115-40991c9c7a8c",
+										"id": "826c81d6-98c3-40c8-a5aa-648920bc4931",
 										"exec": [
 											"let needLotteryname = 'GugeSSC'  //需要變更的彩種名在此加入即可 GugeSSC\r",
 											"let i = 0\r",
@@ -232,7 +232,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "cfb09414-6176-4e78-99b6-1a512b14ab47",
+										"id": "434f5176-d2ba-4aee-b241-3b297084cf64",
 										"exec": [
 											""
 										],
@@ -303,7 +303,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c3c1285b-765f-468d-b6f3-bd98fbd88210",
+										"id": "eb56717c-a3bd-43e3-a5a0-a2b925f6e8df",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)\r",
 											"\r",
@@ -320,7 +320,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "48a765bb-1c2a-46d9-987b-dfed7f1df913",
+										"id": "26891a64-6e35-4366-9d36-c60c180fa333",
 										"exec": [
 											"pm.environment.set(\"PlayTypeIDTemp\", 1421) //依彩種初次來變動\r",
 											"pm.environment.set(\"PlayTypeRadioIDTemp\", 5059) //依彩種初次來變動\r",
@@ -333,13 +333,13 @@
 											"\r",
 											"//以下為彩種初始設定完後即不用再變\r",
 											"pm.environment.set(\"PlayMode\",'1')\r",
-											"pm.environment.set(\"MaxBonusMoney\",'350000')\r",
+											"pm.environment.set(\"MaxBonusMoney\",'250000')\r",
 											"\r",
 											"if (pm.environment.get(\"envName\") === 'JXAppLive') {\r",
-											"    pm.environment.set(\"Price\",'0.01')  \r",
+											"    pm.environment.set(\"Price\",'0.02')  \r",
 											"}\r",
 											"else{\r",
-											"    pm.environment.set(\"Price\",'2') //此為單注金額,Float input\r",
+											"    pm.environment.set(\"Price\",'2.0') //此為單注金額,Float input\r",
 											"}\r",
 											"\r",
 											"\r",
@@ -495,7 +495,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "607c4b12-a57a-4822-babe-2a5c69aace16",
+										"id": "1ed903e7-1cfb-4ad1-81d4-c67c82a17255",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -505,7 +505,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "50bf869e-72e8-4155-aa98-9ab8cd50d0c6",
+										"id": "24fb9db9-bc13-4451-8a9c-44015f1e1f60",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+8))\r",
@@ -654,7 +654,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "47bee8b7-930c-48b6-bd98-86234de4319b",
+										"id": "52a0dc67-9b6a-4ad5-b1db-70af4b5edf01",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -664,7 +664,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "1766f6d3-e557-4b5f-8aac-8f5b2ce4ecba",
+										"id": "15e21c02-58f0-42e3-a79e-bd6050c2844c",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+9))\r",
@@ -813,7 +813,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6aec2d4f-0b4c-4968-9d53-8483bcc34714",
+										"id": "e0b5f8a1-003f-44e5-b988-5b3fce819310",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -823,7 +823,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "507fe061-3f71-4367-9041-7f0a0fe46597",
+										"id": "3345ce61-6156-44ab-8e6f-fb2ba78417f4",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+9))\r",
@@ -972,7 +972,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9c6884d8-27ab-4154-9978-8f505d8a061d",
+										"id": "6c240b74-4ee6-449e-a03c-a30f0971cbf9",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -982,7 +982,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "a331897c-aa82-4922-879b-8b9682d67b8b",
+										"id": "ca74cb2b-4fa5-4ec2-b92f-b96b54e15124",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+9))\r",
@@ -1131,7 +1131,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8ad22993-03a4-4f1f-b306-fd5c2555551d",
+										"id": "06171ee1-accf-4b9a-9bb9-c75735f3a9ed",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -1141,7 +1141,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b382e21d-2cd9-43f3-a3a6-52e0d38fc2a7",
+										"id": "b11ef782-0dda-4b08-be98-8c765efe02c7",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+9))\r",
@@ -1290,7 +1290,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "5d0cfd76-9e0b-4c96-ac6d-b93d60c8fafc",
+										"id": "face9ec1-44f2-46ed-94af-ff111eccc732",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -1300,7 +1300,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "4bed4552-faa0-48ff-9753-ff1d973b9b9b",
+										"id": "a90fd5dd-fb34-49a3-bc77-fc96663e4069",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")))\r",
@@ -1449,7 +1449,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "fcbf79a5-d325-4cb8-b559-a1088fcdea01",
+										"id": "a769da66-7a07-422d-a019-881aba3a565e",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -1459,7 +1459,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "eab5e6a3-889e-4a9c-85dc-a0486cdc6587",
+										"id": "4db0dadf-832b-41a4-b738-f31319e29a81",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")))\r",
@@ -1608,7 +1608,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d5fa9855-7caf-4cae-9e06-d5f64bd56458",
+										"id": "8b674073-0077-415f-a2f3-00f2095d98bc",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -1618,7 +1618,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "6d2d4ef8-3097-457e-9e68-2cbf353646a8",
+										"id": "b2b0e973-dd3d-465a-b2f9-9a103b61228c",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")))\r",
@@ -1767,7 +1767,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8995b27c-27b6-4f23-ab9c-32cc9d5d3b16",
+										"id": "f62f2761-4571-412b-add9-3df7e74f682a",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -1777,7 +1777,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "093f50e8-7d84-4d4a-9361-aa09f47f7915",
+										"id": "ec773d38-9075-4c41-a754-531bb803cf88",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")))\r",
@@ -1926,7 +1926,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6a0cf782-4df7-4c65-b1c1-39df59769ddc",
+										"id": "33d2adeb-dd16-4e55-84b6-ff74e0c26f17",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -1936,7 +1936,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "2a39dac2-8a14-4c02-bd1d-ae34812bd670",
+										"id": "0929ee68-b80a-4d31-bbb0-003aef44a6a3",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")))\r",
@@ -2085,7 +2085,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4eaaf0fb-dc72-4650-9953-7b5985fc7c59",
+										"id": "53f50e3c-9910-4665-b972-8c1cc30e19ad",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -2095,7 +2095,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "c1a96ef4-dd95-4d08-9dbd-c545b68826a6",
+										"id": "09a07764-7ca1-4701-ba0d-5260b866d273",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")))\r",
@@ -2244,7 +2244,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "febb77e5-a4b8-4d1d-87ce-b0cb0dc074c2",
+										"id": "5ebbb2c6-a007-4dce-9bd3-3ee966382a05",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -2254,7 +2254,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "d7cd3577-39b5-435b-afd5-c57b44d0431a",
+										"id": "2a1aeebc-13ba-4883-b286-92e933d400fd",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+1))\r",
@@ -2403,7 +2403,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d9067a62-106e-408f-9743-49dfd0ced59a",
+										"id": "fd360148-ba43-4be2-8adb-32d2792ea447",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -2413,7 +2413,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "4835ab31-a22c-4115-92ce-c59c0830cdb1",
+										"id": "4c09fe05-3ce1-415e-9f8b-abdb112a673e",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+1))\r",
@@ -2562,7 +2562,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "16c40713-cb05-473d-b0fc-d8f2de7e8914",
+										"id": "1c5245d2-c69a-4db5-8ab1-14754659d73f",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -2572,7 +2572,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "cdde188b-0112-4e53-bd4d-afa9826d8b32",
+										"id": "f0f89a78-93b3-456f-8214-74fcfdbfd166",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+1))\r",
@@ -2721,7 +2721,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "bdab6c25-bad8-4547-82b0-a4ae0c2f26c3",
+										"id": "efb2ab90-f715-4b55-ac8b-a4c96af00962",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -2731,7 +2731,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "1d7fa3f7-921c-464a-974e-0a64e7eb41d4",
+										"id": "c9edcbe3-f2f7-4ff7-800a-1da700164f75",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+1))\r",
@@ -2880,7 +2880,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a91f0e6d-9633-48e8-850b-ce492557a031",
+										"id": "6fd134af-3b3f-433f-a125-18455148cb01",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -2890,7 +2890,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "51b93c67-deea-4bdf-b407-3ccca3f17e85",
+										"id": "70c2ae50-c2e5-4009-8e32-e1c0222a0b42",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+1))\r",
@@ -3039,7 +3039,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "48e62f7d-1c7c-407d-a73b-609a791731ce",
+										"id": "51836281-4f52-418c-b381-a056ddd45c5a",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -3049,7 +3049,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "c95623c6-4e65-4257-a4dd-8a3a0eadec60",
+										"id": "8d836e38-61ac-400d-850c-3e58c99851a9",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+1))\r",
@@ -3198,7 +3198,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2fdb4fe8-92ae-4959-914c-0156636dd326",
+										"id": "7b950fd8-6ced-41ee-9b53-5e28f69c8958",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -3208,7 +3208,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "71f5a650-bf7e-493d-ac84-e635ce7bb70c",
+										"id": "ba83edff-46a0-444f-82bb-5b5d53dab8fe",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+2))\r",
@@ -3357,7 +3357,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7a2305f7-6dbd-4cb0-90bb-69b99c4bf331",
+										"id": "203329e3-703a-4ffc-aa70-68c79af0eb9c",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -3367,7 +3367,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "9435dc47-5371-4add-8d11-a7f68ec01d5f",
+										"id": "e79316f6-96dc-4ca9-94b6-f10c4210df28",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+2))\r",
@@ -3516,7 +3516,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ea9c42fb-6297-4851-a4bb-8839ba816b13",
+										"id": "c10450ff-2437-4b63-a115-556d50af9e81",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -3526,7 +3526,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "e5beee6f-b39f-4f54-9b4f-961868cd3dc9",
+										"id": "c1707518-b465-4576-8ee3-831297406163",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+2))\r",
@@ -3675,7 +3675,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "39abf630-4bba-45eb-af14-d7c6e65caa59",
+										"id": "3bf794be-c751-47c3-9812-4fcd7501c50b",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -3685,7 +3685,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "6b63112c-90bd-48b6-85a1-4a51dcbf5c40",
+										"id": "4dd4be81-a37f-4890-9c90-f218595e2298",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+2))\r",
@@ -3834,7 +3834,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "be0aea43-5186-4c8f-9cd6-c0c66842003d",
+										"id": "aaec87f7-6933-4b6d-a378-6c894b64e50a",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -3844,7 +3844,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "ab64f00c-2b50-41d6-aa24-22ad108774a0",
+										"id": "d721d583-29a7-4b3a-8418-2ec0fa4384bf",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+3))\r",
@@ -3993,7 +3993,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0be02936-1d16-4c2d-ab19-9be2059fb960",
+										"id": "cc26d29f-5587-4e2f-9711-1760eaa42d85",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -4003,7 +4003,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "6abb3f1c-ea39-427d-803d-629f7c5f2c36",
+										"id": "73f8cec0-45ad-4245-8d1b-bb32190a8fb9",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+3))\r",
@@ -4152,7 +4152,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "621bf71d-f573-446b-a1db-3108a7e4f414",
+										"id": "56b5d05f-d2bc-4068-8dc9-145f661023b0",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -4162,7 +4162,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "5ee7a5c9-7c99-49ee-a906-6a50e4100745",
+										"id": "a5f87f57-f970-4d4b-b89b-43fa4c685a84",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+4))\r",
@@ -4311,7 +4311,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "30cef712-93e1-4a87-bdd4-23ebb4363d9c",
+										"id": "49fe6667-1a26-497f-ad23-638556556bdb",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -4321,7 +4321,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "2b1f8809-939b-47c5-ba8f-5de82a495fc4",
+										"id": "255071ed-0cc4-4bd7-a3de-67763dedcea4",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+4))\r",
@@ -4470,7 +4470,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9aab8398-7a23-4676-8390-0e85371cef2a",
+										"id": "e0bed996-558f-4985-af3b-51b886823a06",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -4480,7 +4480,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "caa3cb19-f0ff-4959-8f57-988ec0fa6dec",
+										"id": "447b4ce3-3953-46a8-b02d-2a49e71b5ef3",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+4))\r",
@@ -4629,7 +4629,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "02709814-a5f5-49d9-b745-eac04db3e353",
+										"id": "fe6083e0-78e8-4f44-8ad3-407f08a752ef",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -4639,7 +4639,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "de7e813d-3825-4046-888f-e1b62d8abbc6",
+										"id": "65de4fb6-1b71-48f5-ac22-83ed7637f78e",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+4))\r",
@@ -4788,7 +4788,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "76320d3d-ec8f-4b94-afb8-40867cc53b4b",
+										"id": "4f43668e-0719-4ca8-8a8e-02eac250139a",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -4798,7 +4798,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "515f1478-fa9b-4084-873e-9c13bdb4aebb",
+										"id": "f6c35d0d-7eee-43eb-8a3f-2ecac1461169",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+5))\r",
@@ -4947,7 +4947,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1e9f459c-269e-4e1c-affa-ed03040eee7a",
+										"id": "0d81e428-fdb2-4010-9616-d0e2554ec910",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -4957,7 +4957,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "f9925f69-5e73-4286-b542-94893eaf4835",
+										"id": "af5c302e-db4e-4400-8f0c-cfbc1e50b26b",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+6))\r",
@@ -5106,7 +5106,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "def6ecb7-b838-4ed0-9c2e-449142ae1509",
+										"id": "570e14d5-2197-4c3f-ba6a-c8306c7d46e7",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -5116,7 +5116,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b888e608-6ba8-4f2a-b3b8-2fd0e85adb7e",
+										"id": "adb93e09-6a32-456b-997a-281e20173725",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+6))\r",
@@ -5265,7 +5265,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "baa104af-9606-46f6-8e9c-59dae5b9fe26",
+										"id": "913445df-dcbe-4366-9f44-347a66954fdf",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -5275,7 +5275,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "c1cc43e8-90a6-4f09-9f5f-590236587240",
+										"id": "7f130891-4ab9-4bc3-8944-35e6f2900cfb",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+6))\r",
@@ -5424,7 +5424,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "37a5d6ec-7589-4344-bc96-c22d0407399d",
+										"id": "7a3cd7bd-ce2e-4934-a732-085fd75c86c9",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -5434,7 +5434,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "f5ae097a-f4c8-4ff1-80e8-60745cbc9eb7",
+										"id": "2a812a09-748b-4dec-b905-8669ec6b133c",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+6))\r",
@@ -5583,7 +5583,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e6ca8669-a93c-4500-8dfe-6219d9b99b6c",
+										"id": "f7f0d15e-fb9a-4c49-bcbd-8f0c89bb4bea",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -5593,7 +5593,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "8fb41deb-1105-488c-b751-616b01acafc2",
+										"id": "75a391dd-1217-4bcf-864a-e8d265c6b76d",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+6))\r",
@@ -5742,7 +5742,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "19ff139d-02fe-4b88-bdda-52c644fdb2ce",
+										"id": "8bab58c1-d382-4272-b175-09dafd85cf42",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -5752,7 +5752,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "e2667557-db97-485e-9da1-656747edae82",
+										"id": "91244e49-03b1-4461-b337-67fca101c96c",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+6))\r",
@@ -5901,7 +5901,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d235877e-e916-4340-9bce-829c4ecdb0be",
+										"id": "5963a335-4823-46a9-9bc8-5c0af5264477",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -5911,7 +5911,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "48424b4b-0c3e-4123-bf79-83656ab2dfcd",
+										"id": "3a7d23a1-643d-4657-b27e-c4cd1af7e4a7",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+10))\r",
@@ -6060,7 +6060,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b5fa66c4-0d15-4502-a30d-064a659d679e",
+										"id": "4f5fc34a-5037-4de7-9fd3-c00452201131",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -6070,7 +6070,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "34b96ca3-5019-4729-9e77-94ad5acbeb2c",
+										"id": "e53d8eb4-93d3-4644-bcef-fd20594f1748",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+10))\r",
@@ -6219,7 +6219,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b74acb7f-c758-4479-af9e-3888e9ab0496",
+										"id": "18527c02-b22f-4fda-a4a8-7c1eb402df7a",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -6229,7 +6229,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "30984429-aad9-4f33-ba5e-8e9c59305580",
+										"id": "26524ea7-fd34-4f33-8625-900a87c8f9ea",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+10))\r",
@@ -6378,7 +6378,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2d82d647-2e78-4b03-ae93-98ce383cd987",
+										"id": "3f01fe7e-5d15-44cb-a2ba-7330b02860f5",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -6388,7 +6388,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b4f6cd08-c1c3-47d3-8322-d9fb988f6134",
+										"id": "42846bdf-ec46-4078-81b3-ddc678214195",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+10))\r",
@@ -6536,7 +6536,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "4601ec8f-2b9d-420c-acad-08de58ee18af",
+								"id": "06ef3688-a515-4636-bf8a-e07dbe7b5493",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -6546,7 +6546,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e7622595-cad8-4cdf-bc92-d48000e55523",
+								"id": "dcb62eea-6bef-45e3-a0b0-c5f817e8bc33",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -6566,7 +6566,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "38f39e7e-80d2-457e-a9e1-8a2cc4d5aa52",
+										"id": "ce755275-cdf3-4ebe-818e-c668908523a1",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -6576,7 +6576,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "eeb33d79-cf45-44d1-b338-f4f0d4162074",
+										"id": "7a2cb055-d214-43af-a4c1-01f7c5c3bb5c",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+11))\r",
@@ -6725,7 +6725,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7803b3d1-3b2b-4c15-942c-d6cc291eb233",
+										"id": "bb07a91f-b630-403d-91dc-dc8510c6edac",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -6735,7 +6735,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "931db2c8-18f5-4d7b-bae0-6d98ff957dd2",
+										"id": "a7f17e8a-0fbb-4a86-9fd6-7a8b4b5931a8",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+11))\r",
@@ -6884,7 +6884,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ee3ea568-dbfc-4a0f-a314-d8bddd69bece",
+										"id": "fde88cf5-cdec-4235-a4af-2b01de9a067f",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -6894,7 +6894,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "1d48118a-893c-477d-92d8-201f529e2e9b",
+										"id": "a0c8e26f-9e5f-49ff-b08f-6885096ce6ca",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+11))\r",
@@ -7043,7 +7043,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2ee6fa7b-f2db-4359-8b35-d6efd85bcd40",
+										"id": "1d5bc53a-a9c5-43e6-b35e-b19c83844bd9",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -7053,7 +7053,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "7cb4f5fb-55d1-4dc9-be14-a8e317498a4a",
+										"id": "7a2cf4e3-eb40-43b7-aef4-48ac41ebf3b4",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+11))\r",
@@ -7202,7 +7202,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1805757f-45ce-4800-a1d8-5af4649b8ea5",
+										"id": "8204b7d4-013e-49a1-84cb-11af93d91633",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -7212,7 +7212,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "9f43f20d-b2c9-444a-8833-4b8aa98062cb",
+										"id": "0492e0c9-2d8e-47b0-9aa7-afc1a339906e",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+11))\r",
@@ -7361,7 +7361,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f14e7c91-6ffe-45a7-83de-187b3ec0ed74",
+										"id": "f049cc6a-d076-425d-bc73-07e81f048719",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -7371,7 +7371,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "77b096b4-09e2-421e-8105-3e0c66e68954",
+										"id": "5e8989f8-cf3b-4b14-ac3f-e93e96c5f51f",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+11))\r",
@@ -7520,7 +7520,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "da5f7a54-96b1-4cff-aa7a-331db027108c",
+										"id": "100ae553-1b65-46c2-b96c-9c463101f67c",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -7530,7 +7530,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "d33765c7-5ca7-456c-8906-eb1638c89120",
+										"id": "81d58291-e322-44a9-8d35-53d1df78d81a",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+11))\r",
@@ -7679,7 +7679,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2b158c2c-83cf-4aeb-a808-e81c9f87eb8f",
+										"id": "e3fa3fd5-0ee1-4e4c-bccc-579528af0cc2",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -7689,7 +7689,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "d658a6ec-f7e2-4b97-987c-33244ed83960",
+										"id": "4bd7374e-8ad2-4621-9578-61b96d3a275d",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+11))\r",
@@ -7838,7 +7838,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "aa11ea05-45f5-45f8-a564-3a0f22d6cbc2",
+										"id": "65088e56-a4a0-46d2-bf62-8c4b686bd625",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -7848,7 +7848,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "a65cc6e5-a483-48bb-930c-87d8ccc932ab",
+										"id": "ac238333-70c4-45ed-9fec-21bffd3cbe39",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+11))\r",
@@ -7997,7 +7997,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ee75ca8a-cfd8-49b3-850c-9a9229a09664",
+										"id": "c6a4c209-dc60-4e67-a74f-a226465fc627",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -8007,7 +8007,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "e0f77c7e-392f-45d0-b5cd-b1280eda9dd7",
+										"id": "7433549c-f616-49be-bd5c-dac1c17787f0",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+11))\r",
@@ -8156,7 +8156,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "92f80e28-76ef-4ab3-a894-f226e41768c5",
+										"id": "e7565f79-6f41-45ef-8cf0-af5fa661a3d4",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -8166,7 +8166,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "30f228e6-0bc9-412f-b7c5-8651f3ca594b",
+										"id": "85d9b078-bf1e-4794-8965-b899e58764a6",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+11))\r",
@@ -8315,7 +8315,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6ba5e5a5-aa68-42de-9c91-300e61208220",
+										"id": "a665e5b3-11c6-417a-8d94-3499872606fd",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -8325,7 +8325,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "43be95dc-eda2-4ac6-bf3f-95d05aef7425",
+										"id": "5e2668c3-6afc-43b0-b88b-80cad5c38768",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+11))\r",
@@ -8474,7 +8474,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "55284ccd-fb87-4eb1-b8bb-e3d281e018f1",
+										"id": "e4db6e6e-010f-4f93-8cb5-24da7ec2062a",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -8484,7 +8484,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "44c2c36d-4921-420f-adc7-1d8dfb563470",
+										"id": "e4f2b323-b2ec-425e-bebc-3b231a05e4c9",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+11))\r",
@@ -8633,7 +8633,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0b52aad4-5867-4389-8b07-51376c687f46",
+										"id": "de7a2462-1f12-4340-ada9-e19bddb8f99f",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -8643,7 +8643,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "a8a935e3-b6d7-4a7f-9b88-364353731469",
+										"id": "8765fe04-5174-416a-be3d-f9f3b38f5bb4",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+12))\r",
@@ -8792,7 +8792,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "af554a33-582e-4976-8f41-6f1a3237bb90",
+										"id": "0ab2211f-8175-48f5-9ac5-446f92546134",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -8802,7 +8802,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "95ead7da-b1d6-4e99-9cfd-1123ef6b83bc",
+										"id": "199dbd53-6f90-4b4b-97a4-e5042460fac1",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+12))\r",
@@ -8951,7 +8951,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ab9bf899-8923-4f17-b512-fe2fe0fce33d",
+										"id": "0017c70c-c47e-45bb-b9dc-377f0ca4c07e",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -8961,7 +8961,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "85d3419c-3e5a-4b96-8d1a-28c3ed69f327",
+										"id": "182c83a4-8fb6-43a1-a133-1ec7665b002a",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+12))\r",
@@ -9110,7 +9110,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e155630d-6fea-4757-9a5e-981dfdd3e892",
+										"id": "9d0c961b-7676-426e-8510-830230e18f23",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -9120,7 +9120,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "72359d2d-8bfa-469e-91e1-4c3b8b414827",
+										"id": "ac392bfe-089e-4b78-acaf-8be4a5548ec7",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+12))\r",
@@ -9269,7 +9269,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6de66400-c9b2-4180-afff-3a8230a5f3b8",
+										"id": "140d1b52-5c34-403d-9c55-047aa831eae5",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -9279,7 +9279,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b0ed0279-aa80-4e5b-806c-58b028f536d2",
+										"id": "92b9371d-12c2-41fc-a5dc-97bf56d848f5",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+12))\r",
@@ -9428,7 +9428,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "595dec2a-961d-4868-8a4c-6fe2961b62eb",
+										"id": "6e9250d0-069e-4f55-a0e1-b982190b3027",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -9438,7 +9438,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "1c3e28f3-3594-457d-aca3-e4b0df9d754f",
+										"id": "7338744b-2a4e-47ab-9c17-593fd830f42e",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+12))\r",
@@ -9587,7 +9587,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c5cf590e-48d3-4325-befd-e1d903d36097",
+										"id": "23989b84-3233-42c4-9eea-a755fac8ce39",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -9597,7 +9597,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "5a2d7e10-6258-4f75-9167-ebe4b6f3ccda",
+										"id": "a17f4662-9dea-432c-9fc3-0dbe1275a35e",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+12))\r",
@@ -9746,7 +9746,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c24591a6-db8b-4bfe-a9db-5e1c3873e988",
+										"id": "9ecd7ab0-3fe5-4ba5-a8f9-971bfdeba825",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -9756,7 +9756,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "89590ed3-e51f-4bed-aed3-4bf06947b9fd",
+										"id": "8eda5695-9b8b-4289-bc19-1704abf0a9df",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+13))\r",
@@ -9905,7 +9905,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "53174ddb-b2d3-4e4d-b2d8-364b365ab678",
+										"id": "8cb96de4-6ebf-45ac-96b5-42547b101b30",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -9915,7 +9915,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "34d90e16-8bb2-407d-8a1b-91a3927eee03",
+										"id": "a6478de8-98de-4971-8d01-8c33355b9173",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+13))\r",
@@ -10064,7 +10064,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a3d6e3b0-53c5-4d4d-8a26-47cfabc25c61",
+										"id": "b99b1c86-bcd7-423a-8f75-81d661e4bece",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -10074,7 +10074,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "5242cdfc-15cb-4646-adc1-c9fedc181b4d",
+										"id": "9f7ce90a-3cb1-41a9-b0b3-40f9505aad4b",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+13))\r",
@@ -10223,7 +10223,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c6dcba41-cd90-4b7b-9f40-200d3967bb2a",
+										"id": "745d57a7-0e3f-446e-acfa-ddcee9fbcd77",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -10233,7 +10233,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "0651ba56-c399-4c1c-8dc1-ca5ea96fe6f1",
+										"id": "70107058-6b46-4681-a5b8-72b92cab07e2",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+13))\r",
@@ -10382,7 +10382,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f0ff37c5-6f21-4a3f-b832-a5d74fa1ba66",
+										"id": "5e5621c1-3767-4399-8b36-c653835843f0",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -10392,7 +10392,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "5718aa2e-ea6b-4288-8db1-882d9384ffd9",
+										"id": "0befe0de-f3d2-408b-b22b-94dc686261bf",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+13))\r",
@@ -10541,7 +10541,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9b93c5e5-f056-4b76-82b4-2c90a60e58e5",
+										"id": "f66561e2-86c4-41da-9117-a84eb4d8bc9c",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -10551,7 +10551,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "3d0805f6-5467-4697-a2c9-c338b5e876b2",
+										"id": "c5dd0199-d1b2-4af6-8f23-8ce087c0988d",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+13))\r",
@@ -10700,7 +10700,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a1dc1d1f-2eeb-4bb9-a606-72b85fd4b25a",
+										"id": "63fb4d51-9cfa-45eb-a8c6-dc4fe58d63fe",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -10710,7 +10710,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "d35b333e-766f-4e12-9de7-190ef9d3bcb8",
+										"id": "403d9a67-13de-49f6-833a-7e3327ab3699",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+13))\r",
@@ -10859,7 +10859,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "150b2877-aa25-476a-9739-63758e855997",
+										"id": "1982cece-f54f-4339-92e7-470de5efcc84",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -10869,7 +10869,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "691a56a5-df0a-41b1-9ef6-76c260520098",
+										"id": "67d54927-5b09-4e18-b5cc-18f4eb9a249f",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+13))\r",
@@ -11018,7 +11018,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ce88493d-f472-4efa-9a18-df905b42b492",
+										"id": "fc5cf525-03a2-4e45-9004-8c25378ffbf0",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -11028,7 +11028,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "750de3e5-5e2e-484f-a900-4249ff5a4bd8",
+										"id": "9dbfa30b-1001-45b8-a8d4-bbb60bc7e491",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+13))\r",
@@ -11177,7 +11177,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "152dca0e-ce8a-4dc4-bff0-cb7790f21a98",
+										"id": "40fb2a34-8832-4825-9506-a89e6dc33aa6",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -11187,7 +11187,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "1b55e825-61c8-4a44-86bb-1a48290237b2",
+										"id": "0550d210-877e-44df-b3ed-432b46bbb83d",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+13))\r",
@@ -11336,7 +11336,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b1e864de-2c14-40c7-85f0-c8b922890e41",
+										"id": "5cae0792-2a73-48ec-b423-6ef7777a8bdc",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -11346,7 +11346,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "1351b1cb-ff94-448f-a4a3-a002cb04ca61",
+										"id": "0bdc93fd-00e5-4fe7-950f-7004de2ac567",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+13))\r",
@@ -11495,7 +11495,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0de937cb-53bb-4ee7-ad2b-1aaaa65ba4e0",
+										"id": "ba0ec190-2c68-45de-8797-90c0b985975f",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -11505,7 +11505,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "053ed186-09b3-48eb-a33e-5e3461e44390",
+										"id": "76763bf1-c09b-46d9-acf1-c41635b6aeae",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+13))\r",
@@ -11654,7 +11654,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a314794a-dffa-409e-8215-3cfaaf57f9c8",
+										"id": "abbf2c47-03fe-4759-b453-78661846259c",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -11664,7 +11664,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "eb1d3a5d-bb2a-4ac8-9c15-349b980b1c58",
+										"id": "85412bb5-6bc8-47bc-9814-7fa57b54e6ed",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+13))\r",
@@ -11813,7 +11813,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6f15d971-384a-4e2c-84eb-fb0dcdd8a1b4",
+										"id": "140374a8-3340-462a-b6cb-b05fb6ff0f5b",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -11823,7 +11823,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "0025257a-0a94-4d66-b9ca-1e00d590b53a",
+										"id": "1c02fd8e-987a-4647-baf5-d794947c3f5c",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+13))\r",
@@ -11972,7 +11972,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "32575abd-50a0-44d5-ab1e-c4e9fced0863",
+										"id": "4d0971bb-79c3-4502-98c5-2a42d2e6c77c",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -11982,7 +11982,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "fdc0fdf1-91d0-4e2f-bf13-eed84242a114",
+										"id": "13cf3077-d67a-484f-a81f-246fa004abf8",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+14))\r",
@@ -12131,7 +12131,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4c8af498-beed-4673-9620-65f36d4fc397",
+										"id": "b2bf7db0-da54-482b-94a8-fa55679680b4",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -12141,7 +12141,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "749e8b85-c33c-4307-a787-ad84208a4b55",
+										"id": "faff7aae-83c1-429b-b074-0fbbc148fc85",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+14))\r",
@@ -12290,7 +12290,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b100cf4d-5980-4fb4-9c11-b6387bb47090",
+										"id": "fe948f48-0f27-4e9e-ae4a-49c11a2def2d",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -12300,7 +12300,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "6bd783e8-0d97-484a-ac46-3bc19c5e3c2c",
+										"id": "118801dd-c5df-4e1f-96d2-9a2d11020f20",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+14))\r",
@@ -12449,7 +12449,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3e3af35e-9f84-4161-8378-9cbe10933eee",
+										"id": "bcddd565-b8c3-4574-8f95-c872f8960450",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -12459,7 +12459,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "d40c63cd-95e0-42dc-9eb1-eb8daf9e8e6c",
+										"id": "ea53bc32-49e1-45b6-88ba-dcbca945a295",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+14))\r",
@@ -12608,7 +12608,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8dc3ecbb-fc73-45fb-b86c-c15b206ddb4d",
+										"id": "0fee1afb-ce38-4659-ba9e-a2417ca3e6e0",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -12618,7 +12618,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "47c2739c-a475-41f8-9560-0d74ba53dd07",
+										"id": "fd1a6b89-8bd7-4d2c-ac37-a62ffcd9a635",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+14))\r",
@@ -12767,7 +12767,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "61f74c01-74e5-4f67-8b91-7d4dcaedaff7",
+										"id": "a283b483-709c-446b-b533-d36a1c998204",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -12777,7 +12777,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "a9681f20-a9f5-4e5e-a6f6-875ec3e638d1",
+										"id": "421ab8c0-3e2e-4c87-8b79-e045e3926be8",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+14))\r",
@@ -12926,7 +12926,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "cdc1231e-8d47-4f2e-be6a-b0d00d3cb31f",
+										"id": "abc00f5e-671d-42f7-964c-3cf8ceb8db02",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -12936,7 +12936,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "bdde20e0-5032-4a38-94ca-2803112d7687",
+										"id": "0117d7b6-ed73-4033-98e8-b45d853708a0",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+14))\r",
@@ -13085,7 +13085,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "54606196-90da-486f-bc1d-c7a7700ce238",
+										"id": "207f883d-121a-4277-b02a-0b426a8bc615",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -13095,7 +13095,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "25c722e4-4564-40c9-9890-f85c25ee69fe",
+										"id": "c518f766-e51c-4cc7-af2c-fe9acb2432f6",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+14))\r",
@@ -13244,7 +13244,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "df81fc19-c3b6-480a-84a7-d6a6ae1ec0fa",
+										"id": "92bcb946-374d-4ad8-b897-fdf3c8c30cae",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -13254,7 +13254,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "ee1a9533-3361-4fed-ab02-a0e00fca6a98",
+										"id": "1db8049a-21af-4ea2-8e63-42df070c5788",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+14))\r",
@@ -13403,7 +13403,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "68085b29-ac3c-47a0-ab83-f5c1fb9a9f3d",
+										"id": "cf820799-f157-4c4c-9244-1980f6176ecd",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -13413,7 +13413,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "169596b1-878c-4b96-8636-25d541e8d32b",
+										"id": "80d1c73b-a11f-4d43-940c-5a4aedc2e1db",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+14))\r",
@@ -13562,7 +13562,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "083734aa-b72e-4260-b628-6fda0de82170",
+										"id": "ef971af8-e54f-4eb4-bd85-cb409cce6cff",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -13572,7 +13572,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "a54fbc89-ccd5-4c3f-8a9f-772586a62e99",
+										"id": "2833f326-3fcc-4ee0-8d14-a4937ddc3449",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+14))\r",
@@ -13721,7 +13721,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7514f997-9cf6-49c7-8fba-d7798b380c59",
+										"id": "58bd24ee-eee6-43ed-9071-a298072f25e2",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -13731,7 +13731,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "8fdb8315-ac4c-46d8-918d-57c8ca02b3fa",
+										"id": "250f77a2-5587-427f-90c5-3bc5d2e18f0f",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+14))\r",
@@ -13880,7 +13880,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d9967d98-450e-4bc8-b4b3-67ea400bc7d4",
+										"id": "6efac492-a96a-40e5-bcf9-87a8f786aabe",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -13890,7 +13890,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "9d44739e-2f77-4341-a71f-8f80fb928f7a",
+										"id": "d7f47698-bc6c-4b4f-8c6f-ac9290a6a960",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+14))\r",
@@ -14039,7 +14039,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "fd276963-c04c-4f93-8220-03716ce8551b",
+										"id": "12222279-dd64-4cde-86ae-36382a6e3748",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -14049,7 +14049,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "ed2386d1-777a-4d52-b55e-0c30b04ea3a0",
+										"id": "f2c7363a-f465-4bb9-a41b-5bfcabb37f50",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+14))\r",
@@ -14198,7 +14198,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "10272d61-de57-4641-a29d-c18dbe4fa0fc",
+										"id": "a88862b6-ea0f-4ec7-88e6-3f1906280d33",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -14208,7 +14208,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "6922a45d-9813-4a14-a711-0409a2c4e624",
+										"id": "ef522103-3f39-4f65-9cdd-2cb857d8e228",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+15))\r",
@@ -14357,7 +14357,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7e5365c6-a11c-4124-b504-34f64de3c55f",
+										"id": "c34eb34a-5470-46be-9e60-4814f719c628",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -14367,7 +14367,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "a0adc035-e07f-4812-b8a1-19cb93e75953",
+										"id": "84dcc8e5-84f7-4591-ba5a-049290687e3e",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+15))\r",
@@ -14516,7 +14516,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "92aa1873-4190-4c73-ad91-91645fb7256d",
+										"id": "10c9b3e3-534a-4348-bfca-9e510cb724b0",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -14526,7 +14526,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "2b73f424-7e13-4d24-b467-86397cedfc06",
+										"id": "5b556652-ad7d-4ad7-b5f2-beaa8ac24410",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+15))\r",
@@ -14675,7 +14675,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "98ccdbfd-ec53-41df-b668-282d20b5637d",
+										"id": "28e570c8-4d36-426f-9e30-c2b816ad84fa",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -14685,7 +14685,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "c5692c05-7c1c-4cb7-9011-4abb8f685934",
+										"id": "aab62167-83f0-4693-9b2f-5479c4322b42",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+15))\r",
@@ -14834,7 +14834,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "fab5dee3-ac5a-4330-b424-01b620cc1589",
+										"id": "e01a94f1-f1a3-4037-b240-d3b726a05b38",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -14844,7 +14844,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "4d787449-1f43-47be-96f1-3492ba8b26c1",
+										"id": "1c32e76d-d8f8-4ad9-9502-5795e0b9dff8",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+15))\r",
@@ -14993,7 +14993,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8ba13388-2cfd-4d31-b611-02d334fa9fe4",
+										"id": "0eaf370f-ae9b-46e7-9880-97f554e8085f",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -15003,7 +15003,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "1c5ef785-6f6b-496c-aa2f-dd15c30a9689",
+										"id": "9cfccdfe-ce17-4823-8ee5-21bc66ee455c",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+15))\r",
@@ -15152,7 +15152,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6fb027c0-5064-4cba-b28e-f65c8fc288ea",
+										"id": "4f8b6b8b-39f8-4275-88f0-09cd4f527552",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -15162,7 +15162,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "ed8fcfef-cb61-41b4-8f24-b58cbb3f8198",
+										"id": "995641ad-4310-46f9-876e-293bc4019052",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+15))\r",
@@ -15311,7 +15311,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "77d50da5-6864-4d2a-832f-2372e2ba1c9f",
+										"id": "732fcb4a-f939-4738-b6dc-062c7464ebc7",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -15321,7 +15321,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "62f13b89-b92b-4365-aede-3f676495951f",
+										"id": "5f2ed4a1-2bb7-4478-b279-41db27d25fbb",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+15))\r",
@@ -15470,7 +15470,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e3cc9891-e76d-403b-b45f-b1f7c480b912",
+										"id": "19abbced-af3c-4749-9e74-2a83a2bb949f",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -15480,7 +15480,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "086eb210-c57e-4e78-b8ee-9f7abc5e2eed",
+										"id": "a5dcd7f4-a8c3-4f06-8b78-5ed73e0e9ad0",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+15))\r",
@@ -15629,7 +15629,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e0f46a80-3eb5-4f39-a1d6-63a934025f35",
+										"id": "d45c69ac-b29a-4a30-89f8-312d4cbfb860",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -15639,7 +15639,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "ec0ce3af-62dc-4299-ac16-191fcdf26786",
+										"id": "2328149b-d7d6-4e1c-8d92-95b885278640",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+15))\r",
@@ -15788,7 +15788,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3889b3f3-cf4f-4230-a355-88197c028c00",
+										"id": "5b7b6037-aac3-4de2-8fa0-7e3a0eb6b422",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -15798,7 +15798,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "e80d9518-4c57-4838-9500-003927aec6fb",
+										"id": "b6e4d6fa-e258-417a-9041-ad598e3de3c2",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+15))\r",
@@ -15947,7 +15947,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8ec639d3-d772-42f3-9caf-8ae1e0f658fa",
+										"id": "5cd01c57-62bf-4bb3-9748-b8bf54c5182e",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -15957,7 +15957,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "bb3cf6c7-eb15-454a-9ea7-0fa1d624eca4",
+										"id": "acd7cbf4-1071-4290-af40-5b459f089fc7",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+15))\r",
@@ -16106,7 +16106,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1583bb9c-9e82-4d69-ab75-235d18c27d09",
+										"id": "75a2639c-d0f5-46e2-928c-ba4d00284223",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -16116,7 +16116,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "012dd262-2754-4851-ad45-fd0bdbf2b615",
+										"id": "82df2b1e-3f93-45bc-86f3-20d6a20be685",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+15))\r",
@@ -16265,7 +16265,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "003a744e-2e76-4f8d-84d8-8267e4c8db09",
+										"id": "f2bb9a15-4df2-4d77-82ae-0d64ef9e7a9a",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -16275,7 +16275,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "e64c513a-296b-44da-8c1e-e377204625d1",
+										"id": "ddae7c07-498a-4678-bc63-f4faf647094e",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+15))  \r",
@@ -16424,7 +16424,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "117d3f89-bd7e-4013-a096-e76be6479c47",
+										"id": "82febb70-a181-45da-bdf5-4635fc5089ae",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -16434,7 +16434,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "8840f940-d403-45eb-9e9f-509999337a61",
+										"id": "d39f7638-40d9-46a9-8129-5360d3b2904c",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+16))\r",
@@ -16583,7 +16583,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4caa3fc8-baa8-4317-abd8-c39c1a646343",
+										"id": "5fbfcb82-fcbc-4bed-b7d2-45ee9eff5c29",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -16593,7 +16593,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "3713d9d0-7569-4388-93c6-55e63fd537de",
+										"id": "5a58173a-ccef-4652-9044-458ac2b9e11f",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+16))\r",
@@ -16742,7 +16742,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a4e65fb5-8f8c-4b2c-a193-897a223dafc0",
+										"id": "82a594e1-5498-4948-b1a5-37519bd2e3d1",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -16752,7 +16752,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "84c4ce76-98fe-4a79-8947-084f65b27b29",
+										"id": "3238d592-58ca-460e-ae69-335bf350b3a8",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+16))\r",
@@ -16901,7 +16901,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7dc6b104-cf4b-48bb-804a-b65fc2bd9e00",
+										"id": "55fa229e-fc48-4055-9bae-80b7d4b5ef01",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -16911,7 +16911,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "c509412c-7fce-46b6-967e-3c419cd2b7c4",
+										"id": "e7843ecb-833a-4bec-9d2b-6f817fe85bbd",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+16))\r",
@@ -17060,7 +17060,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8f8de28f-a322-45b8-bf26-4c73e1e027cc",
+										"id": "d928d120-80a8-4dda-8ba3-6cb9c585f551",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -17070,7 +17070,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "fde30374-fe22-47fe-b374-edc03d528cf9",
+										"id": "0ea62db9-835f-4c0c-9ccd-822c49c5323e",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+16))\r",
@@ -17219,7 +17219,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "81524f88-980d-462d-a737-0e7e40ceef46",
+										"id": "22710615-ed10-4161-9239-8dc4d9964c62",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -17229,7 +17229,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "1fd3598c-efbc-4348-8f85-696c4dce0f65",
+										"id": "4138df03-0779-4bcb-af10-69e5666048b4",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+16))\r",
@@ -17378,7 +17378,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3046bacf-8787-420b-9a09-3559d8ae5859",
+										"id": "4ea6a0df-7f57-4b17-aa49-12b376ed28f7",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -17388,7 +17388,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "235e8d31-d840-4aa0-9789-29f2311708bf",
+										"id": "0b25b612-c848-4656-9bc3-7de2cd3f5e33",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+16))\r",
@@ -17537,7 +17537,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "42325632-ece9-4e10-95f4-fce039d151e1",
+										"id": "ef5c4609-a7c0-4bc0-9b3a-39e3c29bdf89",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -17547,7 +17547,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "84ee3513-a51d-4c35-bbbb-2a6d8ef2c0e1",
+										"id": "48d38d73-e991-42ca-b333-b6f83a5601ba",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+16))\r",
@@ -17696,7 +17696,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2d749973-0afb-47cb-9e53-2c567653ff5f",
+										"id": "2619ab13-0d92-4007-96b0-bd6b91abc37c",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -17706,7 +17706,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "2dffc350-f3a7-4b64-8da6-c85185179360",
+										"id": "59abf48c-85f3-4db1-977f-48e03ca58cf5",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+17))\r",
@@ -17855,7 +17855,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "5c9106f2-1eae-46d0-904e-b2953e4e8e50",
+										"id": "6bc16444-c611-4ff8-abcf-4bf2542c74db",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -17865,7 +17865,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "8bd5e969-0bac-4964-ad23-7f1dd58b15a0",
+										"id": "7a4d5e0a-f390-4350-a6ec-35a5d33374f0",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+17))\r",
@@ -18014,7 +18014,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0c71cc55-43b2-4ab8-a902-a94f77ed1041",
+										"id": "c6fd6606-43c3-4700-9e78-06fb62f7b132",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -18024,7 +18024,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "57c22e4e-831d-4636-8447-97e26e858ccb",
+										"id": "c4a024e8-38f2-47dd-9187-7f9847b78af9",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+17))\r",
@@ -18173,7 +18173,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e6787ef3-0def-497d-bd7f-c15f86b1e5cc",
+										"id": "13de2abd-3782-4404-9b8f-dfb8b9f4546d",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -18183,7 +18183,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "7cd769af-d88b-4269-9898-5554b9c54b66",
+										"id": "19f15cb0-bbdf-46cf-9513-88298328a071",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+17))\r",
@@ -18332,7 +18332,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "066e2e5b-7352-4cb0-9ead-182304f2cfea",
+										"id": "b854e9ee-349d-4940-8f9b-87fbf5644252",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -18342,7 +18342,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "cfd46d92-ce36-4c4d-b16c-3a9355618ded",
+										"id": "9f17ae60-1ea7-4d93-90ef-69d14dc2f131",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+17))\r",
@@ -18491,7 +18491,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "61721bda-bb4b-4303-9705-1cdc399e1972",
+										"id": "55f7df67-3d3d-4664-bf52-a50e885e5b37",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -18501,7 +18501,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "ff2b1818-79b1-4f36-bcc4-470219e487e3",
+										"id": "f5c6cb6e-d4c2-478e-bc49-183cf2ac63c4",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+17))\r",
@@ -18650,7 +18650,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3e818a5d-cda5-40a4-bb00-2f92271fd8aa",
+										"id": "1b53feb3-4b7d-45df-babb-71fa801b503c",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -18660,7 +18660,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "d2cf486f-7651-42dd-a1b5-695ee81dda0a",
+										"id": "cf73f1e6-f1e9-4985-8007-8e3d7d5649f2",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+17))\r",
@@ -18809,7 +18809,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7b1b63d3-b6b0-4762-b067-bdd511ab1016",
+										"id": "c7564b8f-7545-4f0c-acbb-08561473f08a",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -18819,7 +18819,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "8fab3efc-288f-4996-a188-e61f84546359",
+										"id": "bbcadcfe-a86e-4954-a357-37a33df7abd2",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+17))\r",
@@ -18968,7 +18968,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ad71ac88-abfe-4ec4-9916-483e061b9a9a",
+										"id": "85bdc7dd-1c89-4391-b6eb-8aa0536b8ef9",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -18978,7 +18978,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "64c2268e-a1e4-461b-a775-3075966ba5b1",
+										"id": "00040c63-796d-4bc1-8735-2ddcaf060fab",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+18))\r",
@@ -19127,7 +19127,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8962a493-1be9-4e74-8c78-a39d9807675d",
+										"id": "ece5e364-c8cf-494f-ac12-feb66c7db972",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -19137,7 +19137,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "0c35e77c-5a38-42b1-beb8-3f39f2549708",
+										"id": "80751e71-7fb3-45d3-86df-e2d5dd30a43e",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+19))\r",
@@ -19286,7 +19286,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2901c654-a3cc-472b-abfe-38cfdc342133",
+										"id": "96d9d200-a008-4b5e-a500-b135130057f3",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -19296,7 +19296,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "3f0b1947-6f88-44e6-9281-34a5351b4989",
+										"id": "07fe6812-c43f-49f9-bbd2-470b9a727762",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+19))\r",
@@ -19445,7 +19445,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3191f59d-0852-4272-9595-5b4349232566",
+										"id": "d2a0eb58-32f6-45c4-80fc-42861faf28e9",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -19455,7 +19455,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "8c07ca27-8aa7-4ea2-a065-723c85b4fbe3",
+										"id": "a0d1a18f-02f9-4bcb-9bc9-716a33c7e071",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+19))\r",
@@ -19604,7 +19604,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "39e9c7c1-eb42-4c64-8e93-3cd8d9f2a398",
+										"id": "f4cb1f70-baa6-4c34-bf09-e7a78d705434",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -19614,7 +19614,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "ea94749c-ccd5-4dd7-822f-22bb47f1f4ce",
+										"id": "cea824a3-9472-4d6d-bb22-357ffca99fbc",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+19))\r",
@@ -19763,7 +19763,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0845903b-ed96-485d-8436-0cc29c4bf0e8",
+										"id": "77b45f8f-3f47-421b-8584-2552c0925387",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -19773,7 +19773,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "14966cf0-7318-4013-ba91-c46455e83963",
+										"id": "1cd19f5d-9cb5-4e86-a471-02b4aff052a3",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+19))\r",
@@ -19922,7 +19922,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a478cca2-d2fd-40b2-8e6f-9f84595f6002",
+										"id": "daa4b2f9-36ff-441d-a14d-6bac207da3cd",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -19932,7 +19932,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "9a8f3caf-f162-428b-93f2-a3bdb692a048",
+										"id": "da768303-58ec-4507-9bff-dffc54785302",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+19))\r",
@@ -20081,7 +20081,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "fa9d838c-2c54-4de1-bf85-fd8b8045ac1d",
+										"id": "ec15b503-827d-4e4d-a616-2e1acb72ba48",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -20091,7 +20091,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "852d8695-f01a-42d7-a101-3fc8d012ea14",
+										"id": "1819e977-57f5-43a5-bc86-e732874c3871",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+19))\r",
@@ -20240,7 +20240,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "041280c0-5f6d-4b52-99b6-e350e087b587",
+										"id": "8c603cce-eb2a-4495-a118-b1d1dd90e849",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -20250,7 +20250,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "dbe62683-9bed-4ad7-a889-e6d3f23bd3ba",
+										"id": "484ab472-3e2c-4e73-89f5-09236307dc20",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+19))\r",
@@ -20399,7 +20399,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1fd0ce69-fe81-46b6-adc8-ac032b82bbea",
+										"id": "91451b98-f620-4a77-a972-47a0018fbd7c",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -20409,7 +20409,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b3fd6b5d-6531-4837-81f6-bf535686750a",
+										"id": "6c87060e-29f2-4f86-8c4a-688b08b7f4e3",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+20))\r",
@@ -20558,7 +20558,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "83d06c7d-3a4e-40de-9814-3e01a9eecee2",
+										"id": "70e4899c-468b-41f5-bbda-f38b9dadbef1",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -20568,7 +20568,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "c6cdc192-86ab-4856-8bb1-6a9f16e3ce05",
+										"id": "629c9b0c-12f1-4618-ae27-fa7ec82266a8",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+20))\r",
@@ -20717,7 +20717,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b603d366-d085-4713-a9dd-2290ec356e3e",
+										"id": "a573e42b-f9cf-4049-acbf-f109386b9bd2",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -20727,7 +20727,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "2a1803a1-6039-400d-a471-5a18a0cc9dac",
+										"id": "45435f6f-6198-4b5d-9023-e1031713b88f",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+20))\r",
@@ -20876,7 +20876,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a8d5ea22-a29e-4bc3-8962-140675b44697",
+										"id": "79d0b642-a997-4688-8832-75ccb98e9e3b",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -20886,7 +20886,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "4f4337ae-221c-4476-975d-e1e6995d7663",
+										"id": "2a3075e9-94ed-4a82-aeb6-207c8f067d6a",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+20))\r",
@@ -21035,7 +21035,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "80ad106a-eff3-4748-9b63-3c947bddddf2",
+										"id": "dd5bb432-516a-4676-9c98-b9079d08cdaa",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -21045,7 +21045,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "bd84bb65-5b41-4fc7-83a5-d0cdc5998596",
+										"id": "e9c3035a-592e-4e8f-872e-9125d0ea94d4",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+20))\r",
@@ -21194,7 +21194,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "18e85273-ab50-4e3c-9140-00ab72f43495",
+										"id": "307a1490-1a29-41a2-ba46-789a76987bd7",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -21204,7 +21204,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "4f9517ec-3585-4659-b71a-de9df00826cc",
+										"id": "bbd84e75-d6ca-4c6d-9d78-afaaed1efb71",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+21))\r",
@@ -21353,7 +21353,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3bb177bd-4500-4490-925c-9769b52c5113",
+										"id": "b0463074-800e-4879-a987-12b3006bccb8",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -21363,7 +21363,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "6b21de53-34fd-4489-af17-35fc10181202",
+										"id": "1742ffcf-c3aa-487e-b7f5-56e8f24865c5",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+21))\r",
@@ -21512,7 +21512,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "71049853-5270-432c-8cd5-b106beb699a1",
+										"id": "4e01ade1-bcc6-40b4-a98d-fa2b30803aa7",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -21522,7 +21522,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "a1ab1420-6c08-4161-8a94-3271c8409045",
+										"id": "fea1ae4c-e834-4a14-95dc-15e6bd7d8845",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+21))\r",
@@ -21671,7 +21671,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "63d0002b-3f0f-4296-af5a-26e07af75b13",
+										"id": "3e08caa2-516d-4c66-b0f6-c2e13e816f60",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -21681,7 +21681,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "ac0ea5c6-6f10-449e-a029-eaec0490b1d7",
+										"id": "faaabcad-61b3-482e-9499-0650e347f173",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+21))\r",
@@ -21830,7 +21830,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "122f6e65-ff98-4094-81e1-18df2fc4a832",
+										"id": "305bcba2-de60-4364-b9b2-c4c55372d86c",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -21840,7 +21840,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "0f5f02a1-474a-4831-9496-6fffa3b9371e",
+										"id": "bbf2ad7b-2f91-4c3b-b536-372f54e6596b",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+21))\r",
@@ -21989,7 +21989,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e2c6a92e-5fbb-4ed3-8434-bfda9cb6913f",
+										"id": "27ae2d44-f85f-42f8-a5f7-b45c575aeb8a",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -21999,7 +21999,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "90a579b9-e41f-4654-bcc7-00757caac9b2",
+										"id": "11dbd450-e8ef-43a2-bc2b-4d73da8f7065",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+21))\r",
@@ -22148,7 +22148,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "72234c32-bbf1-4436-aa65-2a96c29d2f46",
+										"id": "10b8270d-d939-452c-8f90-dcf4655134cc",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -22158,7 +22158,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "0dfd2937-708c-41ce-b3fe-1f9c47aa7096",
+										"id": "3661e63a-72b7-43bd-9037-b75d500c2d8a",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+22))\r",
@@ -22307,7 +22307,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "87507e5e-aaa9-4096-b446-97f0f6d0ff1d",
+										"id": "39abb3bc-02d2-4d67-a27a-e701533ffb3c",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -22317,7 +22317,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "25468cd8-c8da-4726-bc46-441d2cc26915",
+										"id": "dce9fc46-643b-4087-91ff-cd4c66fd1adb",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+22))\r",
@@ -22466,7 +22466,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2dd5ff0d-bfc8-4d8a-85d5-ff50b623fb1d",
+										"id": "868b450a-c060-4278-a979-62ee577bdd6a",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -22476,7 +22476,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "26298b35-58ad-46dd-9558-c81390083eeb",
+										"id": "91b1f45f-c479-4ed9-8299-008b9e75cd15",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+22))\r",
@@ -22625,7 +22625,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b74cddbf-8c01-45bd-8783-65ec10cd3a81",
+										"id": "1fe5dc87-2a1f-48a5-bf35-eb0424a4a2a7",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -22635,7 +22635,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "9f8831d5-99e4-48d0-8433-c74c2a59b9c8",
+										"id": "b28892bb-c0d8-4864-a535-01812f4dc354",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+22))\r",
@@ -22784,7 +22784,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "387a9855-3eb9-4926-a133-32baef825878",
+										"id": "008af0ef-e2bf-485b-aa6f-bd4d39ec5ef0",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -22794,7 +22794,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "4bd3e1c1-0b1b-4d79-b66b-1b480ac46f2d",
+										"id": "652f1b83-e13e-41b9-9b41-67b1710b5eb5",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+22))\r",
@@ -22943,7 +22943,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4d2c196d-7730-4d99-9117-4d4067cfc428",
+										"id": "e006b39c-6833-4790-8cf2-264247de3ca6",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -22953,7 +22953,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "51707089-6b57-41da-92a9-a5a6b355fec3",
+										"id": "2365c6f6-5376-45f1-8111-ac64cfa4dc6e",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+22))\r",
@@ -23102,7 +23102,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ca41b052-c19d-4758-9b61-b730cd4235c4",
+										"id": "18ead757-4c15-49ad-9fe4-5d007a4dce9e",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -23112,7 +23112,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "fe8dc15c-6e26-43eb-8c4f-41c10c989307",
+										"id": "ea59ac46-0e1d-4335-865a-a544a6356dd3",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+22))\r",
@@ -23261,7 +23261,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "005c0a09-dd8c-4bd0-9648-2a7319635b52",
+										"id": "5a0ef583-d9aa-4981-8f85-e28e2297eeb1",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -23271,7 +23271,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "2a2a80eb-02d8-4b9a-a362-6b96a13437f6",
+										"id": "210e7947-863c-4eaa-8972-b1f857fc3106",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+22))\r",
@@ -23420,7 +23420,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "098e340c-c7d8-479c-aa6b-13f1588f808c",
+										"id": "bc7f0857-81dd-449a-9c4f-b1ba01de278b",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -23430,7 +23430,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "87ae0034-8531-45d8-980e-238299f5855e",
+										"id": "5e3af411-0ac1-47a9-9b8e-397161a573d7",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+22))\r",
@@ -23579,7 +23579,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e6937e60-48ee-463c-b2d1-453f8e320916",
+										"id": "ffa0c0ef-3829-4135-844b-6ce0be50ddd5",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -23589,7 +23589,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "22ffee6c-c6ca-40ea-b096-ab9e73925ab8",
+										"id": "9bb69c5c-6431-47c9-a45a-696e5413161e",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+23))\r",
@@ -23738,7 +23738,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "27ab12e5-61e2-4349-af0e-df588c31397c",
+										"id": "e4e7e390-2293-4f61-a69a-b58fd87b39c1",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -23748,7 +23748,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "9c567e93-baaa-4c3a-a259-12ee8a4b480b",
+										"id": "1dd0401c-001f-4f09-9d9a-2bf29b4513e1",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+23))\r",
@@ -23897,7 +23897,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "dc4002c1-50f3-494b-9ed8-e8a94b9f7140",
+										"id": "912a80a1-ba79-4e9a-90cd-40afd5a89ce8",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -23907,7 +23907,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b31bd9bf-c956-4d69-b118-6f61582e2bc3",
+										"id": "c7f211af-b538-49cb-a589-b64a2c0cb3cb",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+23))\r",
@@ -24056,7 +24056,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a65abf40-4f3f-4e4c-80ff-72a513784b1c",
+										"id": "07e8c79b-cd2c-484c-acbd-9986779fad63",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -24066,7 +24066,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "645dc7d1-e586-45ea-b707-20ccc04ac265",
+										"id": "c8412247-ffa7-4878-a929-4ac98957550e",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+23))\r",
@@ -24215,7 +24215,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0a1e3db9-199b-4eb4-9f1e-3f85fdb1b21b",
+										"id": "5ddda041-8935-4f9c-a9cc-03bf17d3fdfd",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -24225,7 +24225,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "e99473f2-d9ad-45c4-8aa6-8bbb06c20a5a",
+										"id": "7c37a164-c3fc-49cf-b8e7-a33751f4943c",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+23))\r",
@@ -24374,7 +24374,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "56759da2-2d42-4201-8c1f-663e8aa79df3",
+										"id": "c9d4b438-678b-461b-aa64-c42776468895",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -24384,7 +24384,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "0ddfd20c-b0b9-47a3-86a1-18c64fd24a48",
+										"id": "57387b00-9d2f-4f14-9f6a-2e035698392a",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+23))\r",
@@ -24533,7 +24533,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f897b18d-1279-430c-b6c0-3b09e39266f8",
+										"id": "5d3d5555-35a9-41ff-ab6e-d397328d0851",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)"
 										],
@@ -24543,7 +24543,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "252da8cb-bed2-407f-bd97-a6fa1473f22b",
+										"id": "04b41b87-01a9-4683-9e3b-4ae6dd8dca87",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+24))\r",
@@ -24692,7 +24692,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1da25f31-2cc7-4358-bfd7-4dac60596ac9",
+										"id": "3f6e2eac-75a6-4361-af40-6c6f7d7693ea",
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)\r",
 											"\r",
@@ -24705,7 +24705,7 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "cb9c335a-f32b-4e1b-b26d-347311080029",
+										"id": "a90edc65-1345-4804-972f-21c4c6746cee",
 										"exec": [
 											"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 											"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+25))\r",
@@ -24857,7 +24857,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "fa2a57e8-dc44-4e00-acc0-933445885e81",
+						"id": "88843358-ce40-480a-85f2-5fd020906e4b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -24867,7 +24867,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c18d7fc1-f43c-4cfe-aec9-b1c1915d9177",
+						"id": "a75db47d-71f1-4674-a915-7c2b8a9aedb7",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -24882,7 +24882,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "90f635c7-a72c-4c30-8327-d04e47cf8d79",
+				"id": "61d4fa1c-e65a-438d-b542-f73be6b4d5ce",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -24892,7 +24892,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "1c49ae62-152b-4ac3-bcc9-3c1684a619a4",
+				"id": "cf0e6277-98f3-4a56-a4a1-193a1f5c7cc2",
 				"type": "text/javascript",
 				"exec": [
 					""

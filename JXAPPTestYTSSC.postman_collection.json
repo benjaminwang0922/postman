@@ -29,12 +29,12 @@
 											"\r",
 											"if (pm.environment.get(\"envName\") === 'JXAppSit') {\r",
 											"    pm.environment.set(\"mobile_api_uri\", 'http://192.168.3.16:8082')\r",
-											"    pm.environment.set(\"username\", 'jackson014')\r",
+											"    pm.environment.set(\"username\", 'jackson097')\r",
 											"    pm.environment.set(\"password\", 'f1f0b737ea9358')\r",
 											"}\r",
 											"else if (pm.environment.get(\"envName\") === 'JXAppUat') {\r",
 											"    pm.environment.set(\"mobile_api_uri\", 'http://jx-m.6j71.com')\r",
-											"    pm.environment.set(\"username\", 'jackson004')\r",
+											"    pm.environment.set(\"username\", 'jackson097')\r",
 											"    pm.environment.set(\"password\", 'f1f0b737ea9358')\r",
 											"}\r",
 											"else{\r",
@@ -219,7 +219,9 @@
 									"script": {
 										"id": "d83f99a6-4c41-4d30-825c-2ec5a252cec8",
 										"exec": [
-											"let needLotteryname = 'YTSSC'  //需要變更的彩種名在此加入即可\r",
+											"//let needLotteryname = 'YTSSC'  //需要變更的彩種名在此加入即可\r",
+											"let needLotteryname = 'YTSSC' \r",
+											"\r",
 											"let i = 0\r",
 											"while (i < 60){\r",
 											"    str = pm.response.json().data[parseInt(i)].TypeURL\r",
@@ -315,11 +317,11 @@
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)\r",
 											"\r",
-											"//api後 第一次手動開獎 \"12345\" 綠色\r",
-											"//第二次手動開獎 \"34434\" 紫色\r",
-											"//第三次手動開獎 \"19999\" 藍色\r",
-											"//第四次手動開獎 \"56788\" 橙色\r",
-											"//第五次手動開獎 \"56677\" 淺紫色\r",
+											"//api後 第一次手動開獎 \"1,2,3,4,5\" 綠色\r",
+											"//第二次手動開獎 \"3,4,4,3,4\" 紫色\r",
+											"//第三次手動開獎 \"1,9,9,9,9\" 藍色\r",
+											"//第四次手動開獎 \"5,6,7,8,8\" 橙色\r",
+											"//第五次手動開獎 \"5,6,6,7,7\" 淺紫色\r",
 											"//最後自行開33321驗證\"組選20\"玩法的正確性"
 										],
 										"type": "text/javascript"
