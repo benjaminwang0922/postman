@@ -4659,7 +4659,7 @@
 									"//以下為每個玩法都會變更值,子玩法id,投注內容\r",
 									"pm.environment.set(\"PlayTypeID\", (pm.environment.get(\"PlayTypeIDTemp\")+1))\r",
 									"pm.environment.set(\"PlayTypeRadioID\", (pm.environment.get(\"PlayTypeRadioIDTemp\")+3))\r",
-									"pm.environment.set(\"SelectedNums\",'01')\r",
+									"pm.environment.set(\"SelectedNums\",'00')\r",
 									"pm.environment.set(\"Qty\",'1')\r",
 									"\r",
 									"let TotalAmount = parseFloat(pm.environment.get(\"Price\")) * parseFloat(pm.environment.get(\"Qty\"))\r",
