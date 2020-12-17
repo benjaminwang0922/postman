@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "9dcdd590-6c7c-4d0f-8b28-b8d1eac1e93d",
 		"name": "JXAPPTestVR5PK10",
-		"description": "VR5分PK10",
+		"description": "account:jackson093\r\n此彩種之後的PK10系列,有進行重構重寫。因此經典玩法中get賠率Header是用正常的子玩法ID,而不是之前奇怪的中文名稱轉URIComponent",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -29,12 +29,12 @@
 											"\r",
 											"if (pm.environment.get(\"envName\") === 'JXAppSit') {\r",
 											"    pm.environment.set(\"mobile_api_uri\", 'http://192.168.3.16:8082')\r",
-											"    pm.environment.set(\"username\", 'jackson093')\r",
+											"    pm.environment.set(\"username\", 'jackson091')\r",
 											"    pm.environment.set(\"password\", 'f1f0b737ea9358')\r",
 											"}\r",
 											"else if (pm.environment.get(\"envName\") === 'JXAppUat') {\r",
 											"    pm.environment.set(\"mobile_api_uri\", 'http://jx-m.6j71.com')\r",
-											"    pm.environment.set(\"username\", 'jackson093')\r",
+											"    pm.environment.set(\"username\", 'jackson091')\r",
 											"    pm.environment.set(\"password\", 'f1f0b737ea9358')\r",
 											"}\r",
 											"else{\r",
@@ -128,8 +128,8 @@
 											"let servertime = parseInt(servertimestr) \r",
 											"console.log(servertime)\r",
 											"\r",
-											"let Timeleft = 90 - (servertime % 90)\r",
-											"if ((Timeleft < 30) | (Timeleft > 85)) {\r",
+											"let Timeleft = 300 - (servertime % 300)\r",
+											"if ((Timeleft > 20) & (Timeleft < 50)) {\r",
 											"    setTimeout(() => { }, 10000)\r",
 											"    postman.setNextRequest(\"獲取ServerTime\")\r",
 											"}"
@@ -437,11 +437,11 @@
 										"exec": [
 											"pm.test(\"response is success true\", ()=> pm.expect(pm.response.json().success).is.true)\r",
 											"\r",
-											"//api後 第一次手動開獎 \"12345\" 綠色\r",
-											"//第二次手動開獎 \"34434\" 紫色\r",
-											"//第三次手動開獎 \"19999\" 藍色\r",
-											"//第四次手動開獎 \"56788\" 橙色\r",
-											"//第五次手動開獎 \"56677\" 淺紫色\r",
+											"//api後 第一次手動開獎 \"01,02,03,04,05,06,07,08,10,09\" 綠色\r",
+											"//第二次手動開獎 \"01,02,03,04,05,06,07,08,09,10\" 紫色\r",
+											"//第三次手動開獎 \"01,02,03,04,05,06,07,10,09,08\" 藍色\r",
+											"//第四次手動開獎 \"01,02,03,04,05,06,09,08,10,07\" 橙色\r",
+											"//第五次手動開獎 \"01,02,03,04,05,06,07,10,08,09\" 淺紫色\r",
 											"//最後自行開33321驗證\"組選20\"玩法的正確性"
 										],
 										"type": "text/javascript"
@@ -635,7 +635,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%89%8D%E4%B8%80",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -646,17 +646,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E5%89%8D%E4%B8%80"
+											"value": "%E5%89%8D%E4%B8%80",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -833,7 +832,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"158\"))\r",
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"162\"))\r",
 											"\r",
 											""
 										],
@@ -891,7 +890,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%89%8D%E4%BA%8C",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -902,17 +901,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E5%89%8D%E4%BA%8C"
+											"value": "%E5%89%8D%E4%BA%8C",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -1111,7 +1109,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"158\"))\r",
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"162\"))\r",
 											"\r",
 											""
 										],
@@ -1169,7 +1167,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%89%8D%E4%BA%8C",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -1180,17 +1178,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E5%89%8D%E4%BA%8C"
+											"value": "%E5%89%8D%E4%BA%8C",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -1389,7 +1386,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"1298.5\"))\r",
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"1296\"))\r",
 											"\r",
 											""
 										],
@@ -1447,7 +1444,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%89%8D%E4%B8%89",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -1458,17 +1455,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E5%89%8D%E4%B8%89"
+											"value": "%E5%89%8D%E4%B8%89",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -1667,7 +1663,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"1298.5\"))\r",
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"1296\"))\r",
 											"\r",
 											""
 										],
@@ -1725,7 +1721,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%89%8D%E4%B8%89",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -1736,17 +1732,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E5%89%8D%E4%B8%89"
+											"value": "%E5%89%8D%E4%B8%89",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -1945,7 +1940,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"9089.8\"))\r",
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"9072\"))\r",
 											"\r",
 											""
 										],
@@ -2003,7 +1998,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%89%8D%E5%9B%9B",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -2014,17 +2009,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E5%89%8D%E5%9B%9B"
+											"value": "%E5%89%8D%E5%9B%9B",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -2223,7 +2217,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"9089.8\"))\r",
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"9072\"))\r",
 											"\r",
 											""
 										],
@@ -2281,7 +2275,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%89%8D%E5%9B%9B",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -2292,17 +2286,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E5%89%8D%E5%9B%9B"
+											"value": "%E5%89%8D%E5%9B%9B",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -2501,7 +2494,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"54539.1\"))\r",
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"54432\"))\r",
 											"\r",
 											""
 										],
@@ -2559,7 +2552,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%89%8D%E4%BA%94",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -2570,17 +2563,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E5%89%8D%E4%BA%94"
+											"value": "%E5%89%8D%E4%BA%94",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -2778,7 +2770,7 @@
 											"const regexp = /\\w{1,7}.{0,1}\\w{1,4}(?=-)/;\r",
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"54539.1\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"54432\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -2834,7 +2826,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%89%8D%E4%BA%94",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -2845,17 +2837,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E5%89%8D%E4%BA%94"
+											"value": "%E5%89%8D%E4%BA%94",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -3054,7 +3045,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"271555.2\"))\r",
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"272160\"))\r",
 											""
 										],
 										"type": "text/javascript"
@@ -3111,7 +3102,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%89%8D%E5%85%AD",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -3122,17 +3113,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E5%89%8D%E5%85%AD"
+											"value": "%E5%89%8D%E5%85%AD",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -3331,7 +3321,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"271555.2\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"272160\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -3387,7 +3377,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%89%8D%E5%85%AD",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -3398,17 +3388,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E5%89%8D%E5%85%AD"
+											"value": "%E5%89%8D%E5%85%AD",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -3663,7 +3652,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%AE%9A%E4%BD%8D%E8%83%86",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -3674,17 +3663,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E5%AE%9A%E4%BD%8D%E8%83%86"
+											"value": "%E5%AE%9A%E4%BD%8D%E8%83%86",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -3939,7 +3927,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E9%BE%99%E8%99%8E%E6%96%97",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -3950,17 +3938,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E9%BE%99%E8%99%8E%E6%96%97"
+											"value": "%E9%BE%99%E8%99%8E%E6%96%97",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -4851,7 +4838,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%A4%A7%E5%B0%8F",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -4862,17 +4849,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E5%A4%A7%E5%B0%8F"
+											"value": "%E5%A4%A7%E5%B0%8F",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -5763,7 +5749,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%8D%95%E5%8F%8C",
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
 									"host": [
 										"{{mobile_api_uri}}"
 									],
@@ -5774,17 +5760,16 @@
 									"query": [
 										{
 											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
+											"value": "{{PlayTypeID}}"
 										},
 										{
 											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
+											"value": "{{PlayTypeRadioID}}"
 										},
 										{
 											"key": "playTypeName",
-											"value": "%E5%8D%95%E5%8F%8C"
+											"value": "%E5%8D%95%E5%8F%8C",
+											"disabled": true
 										},
 										{
 											"key": "playTypeRadio",
@@ -6438,123 +6423,6 @@
 							"response": []
 						},
 						{
-							"name": "Check-和值-冠亞和-玩法賠率",
-							"event": [
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "1bb7b1a3-773b-4a34-a0e4-8a42ef426504",
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "test",
-									"script": {
-										"id": "51d0eafd-8dab-4bfc-97e0-792ad34ac3bd",
-										"exec": [
-											"let str = pm.response.json().data[0].Text\r",
-											"const regexp = /\\w{1,7}.{0,1}\\w{1,4}(?=-)/;\r",
-											"let array = regexp.exec(str)\r",
-											"console.log(array[0])\r",
-											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"162.3\"))"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "X-Hec-Authentication",
-										"type": "text",
-										"value": "{{login_key}}"
-									},
-									{
-										"key": "UserID",
-										"type": "text",
-										"value": "{{userid}}"
-									},
-									{
-										"key": "UserName",
-										"type": "text",
-										"value": "{{username}}"
-									},
-									{
-										"key": "sysVersion",
-										"type": "text",
-										"value": "{{sysVersion}}"
-									},
-									{
-										"key": "deviceName",
-										"type": "text",
-										"value": "{{deviceName}}"
-									},
-									{
-										"key": "versionCode",
-										"type": "text",
-										"value": "{{versionCode}}"
-									},
-									{
-										"key": "OS",
-										"type": "text",
-										"value": "{{OS}}"
-									},
-									{
-										"key": "verifyKey",
-										"type": "text",
-										"value": "{{verifyKey}}"
-									},
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json; charset=UTF-8"
-									}
-								],
-								"url": {
-									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeName=%E5%92%8C%E5%80%BC",
-									"host": [
-										"{{mobile_api_uri}}"
-									],
-									"path": [
-										"{{Lottery}}",
-										"rebates"
-									],
-									"query": [
-										{
-											"key": "playTypeID",
-											"value": "{{PlayTypeID}}",
-											"disabled": true
-										},
-										{
-											"key": "PlayTypeRadioID",
-											"value": "{{PlayTypeRadioID}}",
-											"disabled": true
-										},
-										{
-											"key": "playTypeName",
-											"value": "%E5%92%8C%E5%80%BC"
-										},
-										{
-											"key": "playTypeRadio",
-											"value": "1-Vs-10",
-											"disabled": true
-										},
-										{
-											"key": "lotteryTypeID",
-											"value": "{{LotteryID}}",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "經典-和值-冠亞和值",
 							"event": [
 								{
@@ -6709,6 +6577,122 @@
 										{
 											"key": "isUseLimit",
 											"value": "true",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Check-和值-冠亞和-玩法賠率",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "1bb7b1a3-773b-4a34-a0e4-8a42ef426504",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "51d0eafd-8dab-4bfc-97e0-792ad34ac3bd",
+										"exec": [
+											"let str = pm.response.json().data[0].Text\r",
+											"const regexp = /\\w{1,7}.{0,1}\\w{1,4}(?=-)/;\r",
+											"let array = regexp.exec(str)\r",
+											"console.log(array[0])\r",
+											"\r",
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"162\"))"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Hec-Authentication",
+										"type": "text",
+										"value": "{{login_key}}"
+									},
+									{
+										"key": "UserID",
+										"type": "text",
+										"value": "{{userid}}"
+									},
+									{
+										"key": "UserName",
+										"type": "text",
+										"value": "{{username}}"
+									},
+									{
+										"key": "sysVersion",
+										"type": "text",
+										"value": "{{sysVersion}}"
+									},
+									{
+										"key": "deviceName",
+										"type": "text",
+										"value": "{{deviceName}}"
+									},
+									{
+										"key": "versionCode",
+										"type": "text",
+										"value": "{{versionCode}}"
+									},
+									{
+										"key": "OS",
+										"type": "text",
+										"value": "{{OS}}"
+									},
+									{
+										"key": "verifyKey",
+										"type": "text",
+										"value": "{{verifyKey}}"
+									},
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json; charset=UTF-8"
+									}
+								],
+								"url": {
+									"raw": "{{mobile_api_uri}}/{{Lottery}}/rebates?playTypeID={{PlayTypeID}}&PlayTypeRadioID={{PlayTypeRadioID}}",
+									"host": [
+										"{{mobile_api_uri}}"
+									],
+									"path": [
+										"{{Lottery}}",
+										"rebates"
+									],
+									"query": [
+										{
+											"key": "playTypeID",
+											"value": "{{PlayTypeID}}"
+										},
+										{
+											"key": "PlayTypeRadioID",
+											"value": "{{PlayTypeRadioID}}"
+										},
+										{
+											"key": "playTypeName",
+											"value": "%E5%92%8C%E5%80%BC",
+											"disabled": true
+										},
+										{
+											"key": "playTypeRadio",
+											"value": "1-Vs-10",
+											"disabled": true
+										},
+										{
+											"key": "lotteryTypeID",
+											"value": "{{LotteryID}}",
 											"disabled": true
 										}
 									]
@@ -6927,7 +6911,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"18.000\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"18\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -7202,7 +7186,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"162.000\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"162\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -7477,7 +7461,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"162.000\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"162\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -7752,7 +7736,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"1296.000\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"1296\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -8027,7 +8011,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"1296.000\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"1296\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -8302,7 +8286,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"9072.000\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"9072\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -8577,7 +8561,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"9072.000\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"9072\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -8852,7 +8836,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"54432.000\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"54432\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -9127,7 +9111,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"54432.000\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"54432\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -9402,7 +9386,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"271555.200\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"272160\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -9677,7 +9661,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"271555.200\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"272160\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -9952,7 +9936,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"18.000\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"18\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -10863,7 +10847,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"3.600\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"3.6\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -12569,7 +12553,7 @@
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"3.600\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"3.6\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -12839,12 +12823,12 @@
 									"script": {
 										"id": "b48aec3c-8c88-479b-9d7e-3623645ec263",
 										"exec": [
-											"let str = pm.response.json().data[0].Value\r",
-											"const regexp = /\\w{1,7}.{0,1}\\w{1,4}/;\r",
+											"let str = pm.response.json().data[1].Text\r",
+											"const regexp = /\\w{1,7}.{0,1}\\w{1,4}(?=-)/;\r",
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"40.5\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"81.000\"))"
 										],
 										"type": "text/javascript"
 									}
@@ -13114,12 +13098,12 @@
 									"script": {
 										"id": "4ee90c17-e226-4d96-a242-027c400cfb07",
 										"exec": [
-											"let str = pm.response.json().data[0].Value\r",
+											"let str = pm.response.json().data[1].Text\r",
 											"const regexp = /\\w{1,7}.{0,1}\\w{1,4}/;\r",
 											"let array = regexp.exec(str)\r",
 											"console.log(array[0])\r",
 											"\r",
-											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"1.8\"))"
+											"pm.test(\"顯示賠率確認\", ()=> pm.expect(array[0]).to.eql(\"3.6\"))"
 										],
 										"type": "text/javascript"
 									}
